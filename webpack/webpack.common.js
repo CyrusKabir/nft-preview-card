@@ -5,7 +5,6 @@ module.exports = {
     context: path.resolve(__dirname, "../"),
     plugins: [new HtmlWebpackPlugin({
         template: "./src/index.html",
-        title: "kir koloft"
     })],
     module: {
         rules: [

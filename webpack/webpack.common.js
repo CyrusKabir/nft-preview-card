@@ -1,9 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-    entry: "./src/index.js",
+    context: path.resolve(__dirname, "../"),
     plugins: [new HtmlWebpackPlugin({
-        template: "../src/index.html"
+        template: "./src/index.html",
+        title: "kir koloft"
     })],
     module: {
         rules: [
@@ -15,14 +17,14 @@ module.exports = {
                 test: /\.(svg|png|jpg|jpeg|gif)$/,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/images/[name].[hash].[ext]"
+                    filename: "images/[name].[hash].[ext]"
                 }
             },
             {
                 test: /\.(ttf|woff)/,
                 type: "asset/resource",
                 generator: {
-                    filename: "assets/fonts/[name].[hash].[ext]"
+                    filename: "fonts/[name].[hash].[ext]"
                 }
             }
         ]

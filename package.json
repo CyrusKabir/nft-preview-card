@@ -4,8 +4,8 @@
   "description": "my solution to nft preview card FEM challenge",
   "main": "index.js",
   "scripts": {
-    "webpack:dev": "webpack-dev-server --open --config webpack.dev.js",
-    "webpack:prod": "webpack --config webpack.prod.js",
+    "webpack:dev": "webpack-dev-server --open --config ./webpack/webpack.dev.js",
+    "webpack:prod": "webpack --config ./webpack/webpack.prod.js",
     "start": "npm run webpack:dev",
     "build": "npm run webpack:prod"
   },

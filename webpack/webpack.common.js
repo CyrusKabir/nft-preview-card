@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
     context: path.resolve(__dirname, "../"),
     plugins: [new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./src/template.html",
     })],
     module: {
         rules: [

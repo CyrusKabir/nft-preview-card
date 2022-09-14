@@ -1,0 +1,14 @@
+$base-font-path: "../assets/fonts/";
+
+@mixin define-font($font-family, $url, $font-style, $font-weight) {
+    @font-face {
+        font-family: $font-family;
+        src: url($url);
+        font-style: $font-style;
+        font-weight: $font-weight;
+    }
+}
+
+@include define-font("OutfitLight", "#{$base-font-path}Outfit-Light.ttf", normal, normal);
+@include define-font("OutfitRegular", "#{$base-font-path}Outfit-Regular.ttf", normal, normal);
+@include define-font("OutfitSemiBold", "#{$base-font-path}Outfit-SemiBold.ttf", normal, normal);

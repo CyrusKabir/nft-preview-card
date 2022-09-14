@@ -1,0 +1,80 @@
+@use "./mixins" as *;
+@use "./colors" as *;
+@use "./typography" as *;
+
+// maps
+$spacing: (
+    "100": .875rem,
+    "200": .975rem,
+    "300": 1rem,
+    "400": 1.0625rem,
+    "500": 1.4375rem,
+    "600": 1.5rem,
+);
+$display: ("block", "flex");
+$position: ("relative", "absolute");
+
+
+@include generate-utility-classes(
+    $is-custom-props-needed: true,
+    $is-map-nested: false,
+    $property: "color",
+    $class-prefix: "text",
+    $custom-props-prefix: "color",
+    $map: $dark-palette
+);
+@include generate-utility-classes(
+    $is-custom-props-needed: true,
+    $is-map-nested: false,
+    $property: "background-color",
+    $class-prefix: "bg",
+    $custom-props-prefix: "color",
+    $map: $dark-palette
+);
+@include generate-utility-classes(
+    $is-custom-props-needed: false,
+    $is-map-nested: false,
+    $property: "display",
+    $class-prefix: "d",
+    $map: $display
+);
+@include generate-utility-classes(
+    $is-custom-props-needed: false,
+    $is-map-nested: false,
+    $property: "position",
+    $class-prefix: "ps",
+    $map: $position
+);
+
+@include generate-utility-classes(
+    $is-custom-props-needed: true,
+    $is-map-nested: false,
+    $property: "font-family",
+    $class-prefix: "text",
+    $custom-props-prefix: "ff",
+    $map: $font-family
+);
+
+@include generate-utility-classes(
+    $is-custom-props-needed: true,
+    $is-map-nested: false,
+    $property: "font-size",
+    $class-prefix: "text",
+    $custom-props-prefix: "fs",
+    $map: $font-size
+);
+
+@include generate-utility-classes(
+    $is-custom-props-needed: true,
+    $is-map-nested: false,
+    $property: "line-height",
+    $class-prefix: "lh",
+    $custom-props-prefix: "lh",
+    $map: $line-height
+);
+
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1rem);
+}
+

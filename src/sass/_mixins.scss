@@ -1,0 +1,52 @@
+@use "sass:meta";
+@use "sass:map";
+
+@mixin generate-custom-properties($arguments...) {
+    @if map.get(meta.keywords($arguments), "is-map-nested") {
+        @each $keys, $values in map.get(meta.keywords($arguments), "map") {
+            @each $key, $value in $values {
+                --#{map.get(meta.keywords($arguments), "custom-props-prefix")}-#{$key}: #{$value};
+            }
+        }
+    } @else {
+        @each $key, $value in map.get(meta.keywords($arguments), "map") {
+            --#{map.get(meta.keywords($arguments), "custom-props-prefix")}-#{$key}: #{$value};
+        }
+    }
+}
+
+@mixin generate-utility-classes($arguments...) {
+    @if map.get(meta.keywords($arguments), "is-custom-props-needed") {
+        @if map.get(meta.keywords($arguments), "is-map-nested") {
+            @each $keys, $values in map.get(meta.keywords($arguments), "map") {
+                @each $key, $value in $values {
+                    .#{map.get(meta.keywords($arguments), "class-prefix")}-#{$key} {
+                        #{map.get(meta.keywords($arguments), "property")}: var(--#{map.get(meta.keywords($arguments), "custom-props-prefix")}-#{$key});
+                    }
+                }
+            }
+        } @else {
+            @each $key, $value in map.get(meta.keywords($arguments), "map") {
+                .#{map.get(meta.keywords($arguments), "class-prefix")}-#{$key} {
+                    #{map.get(meta.keywords($arguments), "property")}: var(--#{map.get(meta.keywords($arguments), "custom-props-prefix")}-#{$key});
+                }
+            }
+        }
+    } @else {
+        @if map.get(meta.keywords($arguments), "is-map-nested") {
+            @each $keys, $values in map.get(meta.keywords($arguments), "map") {
+                @each $key, $value in $values {
+                    .#{map.get(meta.keywords($arguments), "class-prefix")}-#{$key} {
+                        #{map.get(meta.keywords($arguments), "property")}: #{$key};
+                    }
+                }
+            }
+        } @else {    
+            @each $key, $value in map.get(meta.keywords($arguments), "map") {
+                .#{map.get(meta.keywords($arguments), "class-prefix")}-#{$key} {
+                    #{map.get(meta.keywords($arguments), "property")}: #{$key};
+                }
+            }
+        }
+    }
+}

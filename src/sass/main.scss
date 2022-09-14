@@ -1,0 +1,21 @@
+// defining web fonts
+@use "./font";
+
+// reseting default browser styles
+@use "./reset";
+
+// defining color palettes
+@use "./colors"; 
+
+// defining typography rules
+@use "./typography";
+
+// defining base rules and generating custom properties
+@use "./base";
+
+// generating utility classes
+@use "./utils";
+
+// components
+@use "./card";
+@use "./overlay";

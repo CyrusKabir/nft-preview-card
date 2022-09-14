@@ -1,0 +1,28 @@
+// imports
+@use "./mixins" as *;
+@use "./colors" as *;
+@use "./typography" as *;
+
+// generating custom properties
+:root {
+    @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "color", $map: $dark-palette);
+    @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "ff", $map: $font-family);
+    @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "fs", $map: $font-size);
+    @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "lh", $map: $line-height);
+    --flow-space: 25px;
+}
+
+// just for component demo 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding:1.5rem;
+}

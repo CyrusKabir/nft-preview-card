@@ -2,7 +2,7 @@
 @use "./colors" as *;
 @use "./typography" as *;
 
-// maps
+
 $spacing: (
     "100": .875rem,
     "200": .975rem,
@@ -13,7 +13,6 @@ $spacing: (
 );
 $display: ("block", "flex");
 $position: ("relative", "absolute");
-
 
 @include generate-utility-classes(
     $is-custom-props-needed: true,
@@ -78,3 +77,14 @@ $position: ("relative", "absolute");
     margin-top: var(--flow-space, 1rem);
 }
 
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.svg-icon-current  *[fill]:not([fill=none]) {
+    fill: currentColor;
+}

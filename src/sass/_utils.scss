@@ -2,6 +2,13 @@
 @use "./colors" as *;
 @use "./typography" as *;
 
+%hover {
+    transition: .2s color ease;
+    &:hover {
+        transition: .38s color ease;
+        color: var(--color-primary);
+    }
+}
 
 $spacing: (
     "100": .875rem,
@@ -87,4 +94,8 @@ $position: ("relative", "absolute");
 
 .svg-icon-current  *[fill]:not([fill=none]) {
     fill: currentColor;
+}
+
+.text-hover {
+    @extend %hover;
 }

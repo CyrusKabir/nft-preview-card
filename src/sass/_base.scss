@@ -10,6 +10,9 @@
     @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "fs", $map: $font-size);
     @include generate-custom-properties($is-map-nested: false, $custom-props-prefix: "lh", $map: $line-height);
     --flow-space: 25px;
+    @media only screen and (max-width: 430px) {
+        --fs-base: .95rem;
+    }
 }
 
 // just for component demo 

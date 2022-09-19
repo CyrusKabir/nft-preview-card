@@ -1,65 +1,60 @@
-%hover {
-    transition: .2s color ease;
-    &:hover {
-        transition: .38s color ease;
-        color: var(--color-primary);
-    }
-}
 .card {
+    --flow-space: 1.4375rem;
     $card: &;
-    min-width: 330px;
     width: 100%;
-    max-width: 350px;
-    border-radius: 14px;
+    max-width: 21.875rem;
+    border-radius: 1rem;
     box-shadow:0 30px 10px 15px rgb(12 23 41);
     &__inner {
-        padding: 23px 23px 33px 23px;
+        padding: 1.4375rem 1.4375rem 2.0625rem;
+        @media only screen and (max-width: 430px) {
+            padding: 1.4375rem 1.4375rem;
+        }
     }
     &__visual {
-        --image-radius: 10px;
-        --overlay-radius: var(--image-radius);
-        position: relative;
+        --image-radius: 8px;
         &-image {
             border-radius: var(--image-radius);
+            aspect-ratio: 1/1;
+            width: 100%;
+            object-fit: cover;
         }
     }
     &__info {
-        #{$card}__title { 
-            @extend %hover;
-            font-size: 22px;
-        }
         #{$card}__description {
-            --flow-space: 17px;
+            --flow-space: 1.0625rem;
+            @media only screen and (max-width: 430px) {
+                --flow-space: 0.875rem;
+            }
         }
         #{$card}__vital-info {
-            --flow-space: 23px;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 23px;
+            --flow-space: 1.4375rem;
+            padding-bottom: 1.4375rem;
             border-bottom: 1px solid var(--color-blue-300);
+            @media only screen and (max-width: 430px) {
+                --flow-space: 0.875rem;
+                padding-bottom: 0.875rem;
+            }
         }
-        #{$card}__vital-info > *{
-            justify-content: space-between;
-            align-items: center;
-            gap: 7px;
+        #{$card}__vital-info > * {
+            gap: 0.4375rem;
         }
-        #{$card}__icon {
-            color: inherit;
-            fill: inherit;
+        #{$card}__vital-info--price .icon {
+            width: 0.6875rem;
+            height: 1.125rem;
+        }
+        #{$card}__vital-info--time .icon {
+            width: 1.0625rem;
+            height: 1.0625rem;
         }
         #{$card}__footer {
-            --flow-space: 16px;
-            align-items: center;
+            --flow-space: 1rem;
             gap: 1rem;
         }
         #{$card}__avatar {
-            width: 33px;
-            height: 33px;
-            border: 1px solid white;
-            border-radius: 100%;
-        }
-        #{$card}__owner-name {
-            @extend %hover;
+            width: 2.0625rem;
+            border: 1px solid var(--color-neutral);
+            border-radius: 50%;
         }
     }
 }

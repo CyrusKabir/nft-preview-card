@@ -1,6 +1,11 @@
 @use "sass:meta";
 @use "sass:map";
 
+/* generating custom properties with arguments (order doesn't matter): 
+    - is-map-nested: for checking which iterating way is good -> boolean value
+    - custom-props-prefix: choosing custom property prefix like -> --prefix-property: ... -> string value
+    - map: a key-value collection of properties and values, for generating custom properties base on them -> map
+ */
 @mixin generate-custom-properties($arguments...) {
     @if map.get(meta.keywords($arguments), "is-map-nested") {
         @each $keys, $values in map.get(meta.keywords($arguments), "map") {
@@ -15,6 +20,14 @@
     }
 }
 
+/* generating utiliy classes with arguments (order doesn't matter):
+    - is-custom-props-needed: for checking which value should a property take in utility class, a var with css custom property or a value in map -> boolean value
+    - is-map-nested: for checking which iterating way is good -> boolean value 
+    - property: for defining css property inside utility class
+    - class-prefix: choosing utility class prefix like -> .prefix-...{...} -> string value
+    - custom-props-prefix: choosing custom property prefix like -> --prefix-...: ... -> string value
+    - map: a key-value collection of properties and values, for generating custom properties base on them -> map
+ */
 @mixin generate-utility-classes($arguments...) {
     @if map.get(meta.keywords($arguments), "is-custom-props-needed") {
         @if map.get(meta.keywords($arguments), "is-map-nested") {
